@@ -6,7 +6,7 @@
 
 #### Vad är skillnaden mellan backend och databas? Beskriv vad respektive ansvarar för
 ```
-Jonas branch test
+
 ```
 
 #### Varför är det viktigt att vara konsekvent i sin API-design för att skapa ett användarvänligt API?
