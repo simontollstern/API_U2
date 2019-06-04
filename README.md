@@ -5,11 +5,10 @@
 ### G-frågor
 
 #### Vad är skillnaden mellan backend och databas? Beskriv vad respektive ansvarar för
-```
 En backend är en kodbas med bland annat funktioner för att behandla data. Den kan räkna ut matematik eller hämta enskilda objekt från en databas. Backend innehåller alltid kod användaren aldrig ser.
 En databas är ett ställe där vi förvarar datan vi använder i både frontend och backend,
 den kan innehålla objekt med användare och rättigheter, och den kan innehålla filmer och bilder. Databasen är en låda vi lägger all information i vi har användning av i framtiden.
-```
+
 
 #### Varför är det viktigt att vara konsekvent i sin API-design för att skapa ett användarvänligt API?
 ```
@@ -43,9 +42,8 @@ Auktorisering innebär vad en användare har rättigheter att göra.
 ```
 
 #### Vad innebär OAUTH?
-```
 OAUTH möjliggör att användaren kan logga in via en extern tjänst, t.ex med ett google konto eller dylikt. Med OAUTH får vi då tillgång till information om användaren från tjänsten som användes vid inlogging. Detta innebär också att vi ej behöver spara lösenord på våran egen tjänst då ansvaret ligger hos t.ex google ifall man väljer att logga in med detta.
-```
+
 
 #### Vilka typer av managed services erbjuds av Public Cloud och vad innebär de?
 ```
