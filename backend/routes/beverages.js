@@ -8,14 +8,20 @@ const updateDatabase = () => {
     }
   })
   .then(res => res.json())
-  .then(data => {
-    let arr = [];
-    for(let item of data){
-      if(item.Category === 'Öl'){
-        arr.push({id: item.ProductId, brand: item.ProductNameBold, name: item.ProductNameThin})
+  .then(beverages => {
+    for(let beverage of beverages){
+      if(beverage.Category === 'Öl'){
+        Beverage.create({
+          id: beverage.ProductId,
+          productNumber: beverage.ProductNumber,
+          nameBold: beverage.ProductNameBold,
+          nameThin: beverage.ProductNameThin,
+          description: beverage.BeverageDescriptionShort,
+          usage: beverage.Usage,
+          taste: beverage.Taste
+        })
       }
     }
-    console.log(arr);
   })
 }
 
@@ -26,7 +32,9 @@ setInterval(() => {
 }, 84000000);
 
 const get = (req, res, next) => {
-  res.send('hello :)')
+  Beverage.find()
+    .then(beverages => res.send(beverages))
+    .catch(error => next(error))
 }
 
 module.exports = {
