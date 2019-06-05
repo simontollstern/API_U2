@@ -1,17 +1,7 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const Beverage = require('../models/beverage.js');
+const fetch = require('node-fetch');
 
-const routes = require('./routes');
-
-const app = express();
-
-app.use(express.json());
-app.use(cors());
-
-app.use('/', routes);
-
-app.get('/', (req, res) => {
+const updateDatabase = () => {
   fetch('https://api-extern.systembolaget.se/product/v1/product', {
     headers: {
       'Ocp-Apim-Subscription-Key': '6f45beb889be414792a10d42eaa88252'
@@ -25,11 +15,20 @@ app.get('/', (req, res) => {
         arr.push({id: item.ProductId, brand: item.ProductNameBold, name: item.ProductNameThin})
       }
     }
-    res.send(arr)
+    console.log(arr);
   })
-})
+}
 
-const port = 3001;
-app.listen(port, () => {
-  console.log('app running on port ' + port);
-})
+updateDatabase();
+
+setInterval(() => {
+  updateDatabase();
+}, 84000000);
+
+const get = (req, res, next) => {
+  res.send('hello :)')
+}
+
+module.exports = {
+  get
+}
