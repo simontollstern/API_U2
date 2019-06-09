@@ -11,9 +11,9 @@ den kan innehålla objekt med användare och rättigheter, och den kan innehåll
 
 
 #### Varför är det viktigt att vara konsekvent i sin API-design för att skapa ett användarvänligt API?
-```
 
-```
+Ett bra API underlättar t.ex för oss frontend utvecklare, detta gör det lättare att hämta och skicka rätt data och se till att det hamnar på rätt plats i databasen. Ett bra och konsekvent API “tänk” gör också att mindre fel och buggar kan förekomma då man själv kan bestämma hur vissa scheman ska se ut.
+
 
 #### Vad är autentisering vs auktorisering?
 Autentisering innebär att man verifierar identiteten av en användare.
@@ -24,9 +24,11 @@ Ett Public Cloud innebär att många användare delar på samma server.<br>
 I ett Private Cloud har ett företag ett eget datacenter med servrar som endast de har tillgång till.
 
 #### Varför testar vi mjukvara?
-```
 
-```
+Anledningen till att mjukvara testas är för att förebygga fel och buggar.
+Testas mjukvaran man skriver kan man på ett tidigt stadie upptäcka om koden beter sig som den ska.
+Ännu bättre är det och skriva test innan man skriver koden, TDD.
+Denna utvecklingsmetod innebär att man först skriver ett test, och därefter skriver man koden specifikt till det testet, använder man denna metod upptäcker man direkt om kod måste skrivas om eller om det går att implementera.
 
 ### VG-frågor
 
@@ -41,10 +43,13 @@ OAUTH möjliggör att användaren kan logga in via en extern tjänst, t.ex med e
 
 
 #### Vilka typer av managed services erbjuds av Public Cloud och vad innebär de?
-On Premises - ...<br>
-Infrastructure as a Service - ...<br>
-Platform as a Service - ...<br>
-Software as a Service - ...
+On Premises - Denna service innebär att du själv har hand om servern och serverunderhåll, såkallad "på plats". Skulle servern krasha så är det upp till dig själv att reparera och få igång den igen.<br>
+
+Infrastructure as a Service - Denna service låter dig sköta allt "på" servern helt själv, allt ifrån OS till din applikation du vill köra. förutom hårdvaran som sköts av företaget som står för tjänsten.<br>
+
+Platform as a Service - Denna tjänst utför oftast bara en sak, till exempel google app engine. Dessa låter dig lägga upp en applikation på molnet och driver den sedan, du betalar oftast bara för det som "används" av servern och slipper tänka på server underhåll.<br>
+
+Software as a Service - Denna service är mer generell för hela internet, en software är till exemepl github som vi utvecklare använder flitigt, denna tjänst sköts helt av andra och är oberoende av användare. Detta är den vanligaste tjänsten på internet.
 
 #### Vad innebär TDD och BDD?
 TDD står för Test Driven Development och innebär att man skriver tester för en funktion innan man implementerar den.
