@@ -36,7 +36,7 @@ Denna utvecklingsmetod innebär att man först skriver ett test, och därefter s
 Det innebär att projektet delas upp i olika "services", eller tjänster, där ett team jobbar med varje tjänst. En tjänst kan beskrivas som en funktion som är oberoende av sin omgivning.
 
 #### Vad är fördelarna med API:er jämfört med en webblösning som går direkt mot en databas?
-Om man använder sig av API instället för en hårt kopplad front- och backend betyder det att man kan använda backenden för flera olika applikationer, t.ex. en webbapp och en mobilapp. Det möjliggör även att andra kan få tillgång till data om man väljer att göra APIet publikt.
+Om man använder sig av API istället för en hårt kopplad front- och backend betyder det att man kan använda backenden för flera olika applikationer, t.ex. en webbapp och en mobilapp. Det möjliggör även att andra kan få tillgång till data om man väljer att göra APIet publikt.
 
 #### Vad innebär OAUTH?
 OAUTH möjliggör att användaren kan logga in via en extern tjänst, t.ex med ett google konto eller dylikt. Med OAUTH får vi då tillgång till information om användaren från tjänsten som användes vid inlogging. Detta innebär också att vi ej behöver spara lösenord på våran egen tjänst då ansvaret ligger hos t.ex google ifall man väljer att logga in med detta.
