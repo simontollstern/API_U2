@@ -1,28 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import style from './StartScreenComponent.module.css';
+import ReviewListComponent from '../ReviewList/ReviewListComponent'
+import BeverageListComponent from '../BeverageList/BeverageListComponent';
 
 export default class StartScreenComponent extends Component {
   render() {
     return (
-      <header>
-        <div className={style.sidebarWrapper}>
-          <h2>Hello</h2>
-          <nav>
-            <ul>
-              <li>
-                <a href="#">
-                Hem
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                Recensioner
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <Fragment>
+        <header>
+          <h1>hursmakarden</h1>
+        </header>
+        <main>
+          <ReviewListComponent />
+          <BeverageListComponent />
+        </main>
+      </Fragment>
     )
   }
 }
