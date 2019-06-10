@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import style from './BeverageListComponent.module.css';
+import { Link } from 'react-router-dom';
 
 export default class BeverageListComponent extends Component {
-
   constructor(props){
     super(props);
     this.state = {
@@ -19,10 +19,10 @@ export default class BeverageListComponent extends Component {
   render() {
     return (
       <div>
-        <h2>Nån sökfunktion här</h2>
+        <input type="text" placeholder="Sök.." />
         <ul>
           {this.state.beverages.map(beverage => {
-            return <li key={beverage.id}><a href="">{beverage.nameBold}</a></li>
+            return <li key={beverage.id}><Link to={"/" + beverage.id}><span>{beverage.nameBold}</span> {beverage.nameThin}</Link></li>
           })}
         </ul>
       </div>
