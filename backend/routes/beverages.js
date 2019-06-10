@@ -29,7 +29,7 @@ updateDatabase();
 
 setInterval(() => {
   updateDatabase();
-}, 84000000);
+}, 86400000);
 
 const get = (req, res, next) => {
   Beverage.find()
