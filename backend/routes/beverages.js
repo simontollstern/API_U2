@@ -11,7 +11,7 @@ const updateDatabase = () => {
   .then(beverages => {
     for(let beverage of beverages){
       if(beverage.Category === 'Öl'){
-        Beverage.create({
+        Beverage.update({id: beverage.ProductId}, {
           id: beverage.ProductId,
           productNumber: beverage.ProductNumber,
           nameBold: beverage.ProductNameBold,
@@ -19,7 +19,7 @@ const updateDatabase = () => {
           description: beverage.BeverageDescriptionShort,
           usage: beverage.Usage,
           taste: beverage.Taste
-        })
+        }, {upsert: true})
       }
     }
   })
