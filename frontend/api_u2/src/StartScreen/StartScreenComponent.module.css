@@ -7,11 +7,10 @@ header {
 
 main{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-main div{
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-  padding: 10px 20px;
-  border-radius: 5px;
+main > div:first-child{
+  margin-right: 30px;
 }
