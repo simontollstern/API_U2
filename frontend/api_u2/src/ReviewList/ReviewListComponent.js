@@ -23,9 +23,8 @@ export default class ReviewListComponent extends Component {
         <ul>
           {this.state.reviews.map((reviews, index) => {
             return (
-              <div className={style.reviewWrapper}>
+              <div className={style.reviewWrapper} key={index}>
                 <h1>{reviews.name}</h1>
-                <br></br>
                 <p>{reviews.content}</p>
               </div>
             )
