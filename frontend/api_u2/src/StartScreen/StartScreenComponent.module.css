@@ -1,24 +1,17 @@
 header {
   padding: 10px;
   background-color: rgba(106, 137, 204, 1.0);
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.sidebarWrapper {
+main{
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
 }
 
-nav {
-
-}
-
-nav ul {
-  list-style-type: none;
-
-  display: flex;
-}
-
-nav ul li:not(:last-child) {
-  margin-right: 20px;
+main div{
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  border-radius: 5px;
 }
