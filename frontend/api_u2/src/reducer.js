@@ -9,7 +9,7 @@ const root = (state = initialState, action) => {
     case 'ADD_BEVERAGES':
       return{
         ...state,
-        beverages: [...state.beverages, ...action.payload]
+        beverages: [...action.payload]
       }
     default:
       return state
