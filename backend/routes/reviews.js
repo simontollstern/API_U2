@@ -13,7 +13,7 @@ const post = (req, res, next) => {
     title: req.body.title,
     content: req.body.content,
     rating: req.body.rating
-  })
+  }).then(() => res.status(201).send());
 }
 
 const deleteReview = (req, res, next) => {
