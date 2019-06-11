@@ -1,19 +1,14 @@
 import React, { Component } from 'react'
 import style from './BeverageListComponent.module.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addBeverages } from '../actions';
 
-export default class BeverageListComponent extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      beverages: []
-    };
-  }
-
+class BeverageListComponent extends Component {
   componentDidMount(){
     fetch('http://localhost:3001/beverages')
       .then(res => res.json())
-      .then(beverages => this.setState({beverages: beverages}));
+      .then(beverages => this.props.addBeverages(beverages));
   }
 
   render() {
@@ -21,11 +16,21 @@ export default class BeverageListComponent extends Component {
       <div>
         <input type="text" placeholder="Sök.." />
         <ul>
-          {this.state.beverages.map(beverage => {
-            return <li key={beverage.id}><Link to={"/" + beverage.id + "+" + beverage.productNumber}><span>{beverage.nameBold}</span> {beverage.nameThin}</Link></li>
+          {this.props.beverages.map(beverage => {
+            return <li key={beverage.id}><Link to={"/" + beverage.id}><span>{beverage.nameBold}</span> {beverage.nameThin}</Link></li>
           })}
         </ul>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  beverages: state.root.beverages
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  addBeverages: (beverages) => dispatch(addBeverages(beverages))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BeverageListComponent);

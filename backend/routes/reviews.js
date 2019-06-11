@@ -1,26 +1,19 @@
-const reviews = [
-  {
-    name: 'name',
-    content: 'Denna smakade på detta sätt.'
-  },
-  {
-    name: 'name1',
-    content: 'Denna smakade på detta sätt. 1'
-  },
-  {
-    name: 'name2',
-    content: 'Denna smakade på detta sätt. 2'
-  },
-  {
-    name: 'name3',
-    content: 'Denna smakade på detta sätt. 3'
-  }
-]
+const Review = require('../models/review.js');
 
 const get = (req, res, next) => {
   res.send(reviews)
 }
 
+const post = (req, res, next) => {
+  Review.create({
+    beverageId: req.body.beverageId,
+    title: req.body.title,
+    content: req.body.content,
+    rating: req.body.rating
+  })
+}
+
 module.exports = {
-  get
+  get,
+  post
 }
