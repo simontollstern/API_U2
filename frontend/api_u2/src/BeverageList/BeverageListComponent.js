@@ -22,7 +22,7 @@ export default class BeverageListComponent extends Component {
         <input type="text" placeholder="Sök.." />
         <ul>
           {this.state.beverages.map(beverage => {
-            return <li key={beverage.id}><Link to={"/" + beverage.id}><span>{beverage.nameBold}</span> {beverage.nameThin}</Link></li>
+            return <li key={beverage.id}><Link to={"/" + beverage.id + "+" + beverage.productNumber}><span>{beverage.nameBold}</span> {beverage.nameThin}</Link></li>
           })}
         </ul>
       </div>

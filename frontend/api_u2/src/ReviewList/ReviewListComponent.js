@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import style from './ReviewListComponent.module.css';
+import { Link } from 'react-router-dom';
 
 export default class ReviewListComponent extends Component {
 
@@ -26,6 +27,7 @@ export default class ReviewListComponent extends Component {
               <div className={style.reviewWrapper} key={index}>
                 <h1>{reviews.name}</h1>
                 <p>{reviews.content}</p>
+                <Link to="/:id">Till drycken här</Link>
               </div>
             )
           })}
