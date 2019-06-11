@@ -1,7 +1,9 @@
 const Review = require('../models/review.js');
 
 const get = (req, res, next) => {
-  res.send(reviews)
+  Review.find().then(reviews => {
+    res.send(reviews)
+  })
 }
 
 const post = (req, res, next) => {
