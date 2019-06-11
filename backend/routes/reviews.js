@@ -16,7 +16,13 @@ const post = (req, res, next) => {
   })
 }
 
+const deleteReview = (req, res, next) => {
+  console.log('deleting ' + req.params.id)
+  Review.findByIdAndRemove(req.params.id).exec();
+}
+
 module.exports = {
   get,
-  post
+  post,
+  deleteReview
 }
