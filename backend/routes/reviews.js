@@ -7,6 +7,7 @@ const get = (req, res, next) => {
 }
 
 const post = (req, res, next) => {
+  console.log(req.body);
   Review.create({
     beverageId: req.body.beverageId,
     title: req.body.title,
