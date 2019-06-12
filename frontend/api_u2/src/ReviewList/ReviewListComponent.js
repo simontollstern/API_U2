@@ -27,7 +27,7 @@ export default class ReviewListComponent extends Component {
               <div className={style.reviewWrapper} key={index}>
                 <h1>{reviews.name}</h1>
                 <p>{reviews.content}</p>
-                <Link to="/:id">Till drycken här</Link>
+                <Link to={"/" + reviews.beverageId}>Till drycken här</Link>
               </div>
             )
           })}
