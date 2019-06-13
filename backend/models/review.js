@@ -4,7 +4,7 @@ const reviewSchema = new mongoose.Schema({
   beverageId: String,
   title: String,
   content: String,
-  rating: String
+  rating: Number
 });
 
 const review = mongoose.model('review', reviewSchema);
