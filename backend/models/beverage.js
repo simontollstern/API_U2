@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
 const beverageSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    unique: true
-  },
+  id: String,
   productNumber: String,
   nameBold: String,
   nameThin: String,

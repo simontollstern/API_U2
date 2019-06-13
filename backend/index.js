@@ -17,3 +17,9 @@ mongoose.connect("mongodb://localhost/hursmakarden", { useNewUrlParser: true }).
     console.log('app running on port ' + port);
   })
 )
+
+
+
+
+
+module.exports = app;

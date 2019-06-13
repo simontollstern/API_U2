@@ -19,7 +19,7 @@ const updateDatabase = () => {
           description: beverage.BeverageDescriptionShort,
           usage: beverage.Usage,
           taste: beverage.Taste
-        }, {new: true, upsert: true}).exec();
+        }, {new: true, upsert: true, useFindAndModify: false}).exec();
       }
     }
   })

@@ -11,10 +11,20 @@ export default class ReviewListComponent extends Component {
     }
   }
 
-  componentDidMount() {
+  getReviews = () => {
     fetch('http://localhost:3001/reviews')
       .then(res => res.json())
       .then(data => this.setState({reviews: data}))
+  }
+
+  deleteReview = (id) => {
+    fetch('http://localhost:3001/reviews/' + id, {
+      method: 'DELETE'
+    })
+  }
+
+  componentDidMount() {
+    this.getReviews();
   }
 
   render() {
@@ -27,7 +37,8 @@ export default class ReviewListComponent extends Component {
               <div className={style.reviewWrapper} key={index}>
                 <h1>{reviews.name}</h1>
                 <p>{reviews.content}</p>
-                <Link to={"/" + reviews.beverageId}>Till drycken här</Link>
+                <Link to="/:id">Till drycken här</Link>
+                <button onClick={() => this.deleteReview(reviews._id)}>DELETE</button>
               </div>
             )
           })}
