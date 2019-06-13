@@ -7,6 +7,7 @@ const reviews = require('./reviews.js');
 router.get('/beverages', beverages.get);
 router.get('/reviews', reviews.get);
 router.post('/reviews', reviews.post);
+router.put('/reviews/:id', reviews.put);
 router.delete('/reviews/:id', reviews.deleteReview);
 
 module.exports = router;
