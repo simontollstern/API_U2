@@ -7,10 +7,10 @@ header {
 
 main{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-start;
 }
 
-main > div:first-child{
+/* main > div:first-child{
   margin-right: 30px;
-}
+} */

@@ -29,20 +29,18 @@ export default class ReviewListComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className={style.reviews}>
         <p>Review List</p>
-        <ul>
           {this.state.reviews.map((reviews, index) => {
             return (
               <div className={style.reviewWrapper} key={index}>
-                <h1>{reviews.name}</h1>
+                <h3>{reviews.title}</h3>
                 <p>{reviews.content}</p>
-                <Link to="/:id">Till drycken här</Link>
-                <button onClick={() => this.deleteReview(reviews._id)}>DELETE</button>
+                <Link to={"/" + reviews.beverageId} className={style.link}>Till drycken här</Link>
+                <button onClick={() => this.deleteReview(reviews._id)}>Delete</button>
               </div>
             )
           })}
-        </ul>
       </div>
     )
   }
