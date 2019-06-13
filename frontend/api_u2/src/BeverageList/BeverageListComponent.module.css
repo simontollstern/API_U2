@@ -1,7 +1,26 @@
-ul{
+ul {
   list-style: none;
 }
 
-span{
+span {
   font-weight: bold;
+}
+
+.beverages {
+  width: 40%;
+}
+
+.beverageWrapper {
+  display: flex;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0px 0px 5px 0px black;
+}
+
+img {
+  margin-right: 20px;
+}
+
+input {
+  margin: 10px 0 0;
 }
