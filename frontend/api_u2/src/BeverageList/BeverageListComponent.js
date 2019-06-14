@@ -3,34 +3,65 @@ import style from './BeverageListComponent.module.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addBeverages } from '../actions';
-import ReviewListComponent from '../ReviewList/ReviewListComponent';
+import Pagination from "react-js-pagination";
 
 class BeverageListComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activePage: 1,
+      activePageArray: []
+    }
+  }
+
   componentDidMount(){
     fetch('http://localhost:3001/beverages')
       .then(res => res.json())
-      .then(beverages => this.props.addBeverages(beverages));
+      .then(beverages => {
+        let beverageArray = [];
+        let temp = [];
+        let count = 1;
+        for(let beverage of beverages){
+          temp.push(beverage);
+          if(count % 10 === 0){
+            beverageArray.push(temp);
+            temp = [];
+          }
+          count++;
+        }
+        beverageArray.push(temp);
+        this.props.addBeverages(beverageArray);
+        this.setState({activePageArray: this.props.beverages[this.state.activePage -1]});
+      })
+  }
+
+  handlePageChange = (pageNumber) =>      {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({activePage: pageNumber});
+    this.setState({activePageArray: this.props.beverages[this.state.activePage -1]});
   }
 
   render() {
+
+    console.log(this.state.activePageArray);
+
     return (
-      <div className={style.beverages}>
-        <input type="text" placeholder="Sök.." />
-        <ul>
-          {this.props.beverages.map((beverage) => {
-            return (
-              <div key={beverage.id} className={style.beverageWrapper}>
-                <img src="https://icon2.kisspng.com/20180125/ejq/kisspng-beer-icon-design-icon-beer-5a6a18519fe249.7805303115169024816549.jpg" alt="Beer" height="60" />
-                <div>
-                  <Link to={"/" + beverage.id}>{beverage.nameBold}</Link>
-                  <p>{beverage.nameThin}</p>
-                </div>
-              </div>
-              // <li key={beverage.id}><Link to={"/" + beverage.id}><span>{beverage.nameBold}</span> {beverage.nameThin}</Link></li>
-            )
-          })}
-        </ul>
-      </div>
+        <div className={style.beverages}>
+
+          {this.state.activePageArray.map(beverage => {
+            return <div key={beverage.id} className={style.beverageWrapper}>
+              <p>{beverage.nameBold}</p>
+            </div> 
+          })}         
+          
+        <Pagination
+          activePage={this.state.activePage}
+          itemsCountPerPage={10}
+          totalItemsCount={this.props.beverages.length}
+          pageRangeDisplayed={5}
+          onChange={this.handlePageChange}
+        />
+        </div>
     )
   }
 }
