@@ -12,6 +12,12 @@ const getById = (req, res, next) => {
     .catch(error => next(error))
 }
 
+const getReviewsById = (req, res, next) => {
+  Review.find({beverageId: req.params.id})
+    .then(reviews => res.send(reviews))
+    .catch(error => next(error))
+}
+
 const post = (req, res, next) => {
   Review.create({
     beverageId: req.body.beverageId,
@@ -52,6 +58,7 @@ const deleteReview = (req, res, next) => {
 module.exports = {
   get,
   getById,
+  getReviewsById,
   post,
   put,
   deleteReview
