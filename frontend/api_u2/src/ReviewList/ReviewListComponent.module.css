@@ -4,6 +4,26 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.25);
   border-radius: 5px;
   padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.positive{
+  background: linear-gradient(to left, hsl(100, 50%, 70%), rgba(0,0,0,0));
+}
+
+.negative{
+  background: linear-gradient(to left, hsl(0, 50%, 70%), rgba(0,0,0,0));
+}
+
+.reviewWrapper > div:first-child{
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviewWrapper img{
+  max-width: 50px;
+  opacity: 0.25;
 }
 
 .reviews h1{
@@ -15,13 +35,15 @@
 }
 
 .reviews a{
-  background-color: #ddd;
+  background-color: #fff;
+  border: 1px solid #aaa;
   border-radius: 5px;
   padding: 5px;
   color: #000;
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
+
 }
 
 .reviews{
