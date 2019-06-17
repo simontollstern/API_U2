@@ -45,7 +45,6 @@ class BeverageListComponent extends Component {
 
     return (
         <div className={style.beverages}>
-
           {this.state.activePageArray.map(beverage => {
             return <Link to={"/beverage/" + beverage.id} key={beverage.id}>
               <div className={style.beverageWrapper}>
@@ -58,14 +57,13 @@ class BeverageListComponent extends Component {
               </div>
             </Link>
           })}
-
-        <Pagination
-          activePage={this.state.activePage}
-          itemsCountPerPage={10}
-          totalItemsCount={this.props.beverages.length}
-          pageRangeDisplayed={5}
-          onChange={this.handlePageChange}
-        />
+          <Pagination
+            activePage={this.state.activePage}
+            itemsCountPerPage={10}
+            totalItemsCount={this.props.beverages.length}
+            pageRangeDisplayed={5}
+            onChange={this.handlePageChange}
+          />
         </div>
     )
   }
