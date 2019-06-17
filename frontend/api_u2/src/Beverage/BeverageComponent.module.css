@@ -1,0 +1,62 @@
+.beverageReviews {
+  width: 40%;
+  background-color: rgba(248, 194, 145, 1.0);
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.beverageContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input[type="text"]{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #ddd;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+form textarea{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #ddd;
+  font-size: 16px;
+  margin-bottom: 10px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+form label img{
+  width: 50px;
+}
+
+form img{
+  opacity: 0.25;
+}
+
+form input[type=radio]{
+  display: none;
+}
+
+form input[type=submit]{
+  font-size: 16px;
+  padding: 10px;
+}
