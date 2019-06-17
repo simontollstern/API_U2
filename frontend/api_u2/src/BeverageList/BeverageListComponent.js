@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addBeverages } from '../actions';
 import Pagination from "react-js-pagination";
+import beer from '../beer.png';
 
 class BeverageListComponent extends Component {
   constructor(props) {
@@ -51,8 +52,12 @@ class BeverageListComponent extends Component {
           {this.state.activePageArray.map(beverage => {
             return <Link to={"/beverage/" + beverage.id} key={beverage.id}>
               <div className={style.beverageWrapper}>
-                <h1>{beverage.nameBold}</h1>
-                <h2>{beverage.nameThin}</h2>
+                <img src={beer} alt="beer" />
+                <div>
+                  <h1>{beverage.nameBold}</h1>
+                  <h2>{beverage.nameThin}</h2>
+                  <p>{beverage.description}</p>
+                </div>
               </div>
             </Link>
           })}
