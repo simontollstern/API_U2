@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import style from './ReviewComponent.module.css';
+import thumbsup from '../thumbsup.png';
+import thumbsdown from '../thumbsdown.png';
 
 export default class ReviewComponent extends Component {
 
@@ -8,6 +11,16 @@ export default class ReviewComponent extends Component {
       beverage: {},
       review: {},
       textarea: ''
+    }
+  }
+
+  setRadioColor = () => {
+    for(let label of document.querySelectorAll('form div label')){
+      if(label.children[1].checked){
+        label.children[0].style.opacity = '1';
+      }else{
+        label.children[0].style.opacity = '0.25';
+      }
     }
   }
 
@@ -47,13 +60,18 @@ export default class ReviewComponent extends Component {
     .then(res => res.json())
     .then(review => this.setState({review}))
     .then(() => {
-      for(let radio of document.querySelector('form div').children){
-        if(radio.value == this.state.review.rating){
-          radio.checked = true;
-        }
+      const labels = document.querySelectorAll('form div label');
+      console.log(this.state.review.rating);
+      if(this.state.review.rating){
+        console.log('+1')
+        labels[0].children[1].checked = true;
+      }else{
+        console.log('-1')
+        labels[1].children[1].checked = true;
       }
     })
     .then(() => this.setState({textarea: this.state.review.content}))
+    .then(() => this.setRadioColor())
   }
 
   handleChange = (e) => {
@@ -62,14 +80,20 @@ export default class ReviewComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className={style.reviewContent}>
         <p>{this.state.beverage.nameBold}</p>
         <form onSubmit={this.editReview}>
           <input type="text" defaultValue={this.state.review.title} />
           <textarea value={this.state.textarea} onChange={this.handleChange}></textarea>
           <div>
-            <input type="radio" name="rating" value="1" />
-            <input type="radio" name="rating" value="0" />
+          <label>
+                <img src={thumbsup} alt="thumbs up" />
+                <input type="radio" name="rating" value="1" onChange={this.setRadioColor} />
+              </label>
+              <label>
+                <img src={thumbsdown} alt="thumbs down" />
+                <input type="radio" name="rating" value="0" onChange={this.setRadioColor} />
+              </label>
           </div>
           <input type="submit" value="SUBMIT" />
         </form>

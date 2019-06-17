@@ -27,9 +27,9 @@ class BeverageComponent extends Component {
     e.preventDefault();
 
     const getRating = () => {
-      for(let radio of e.target.children[2].children){
-        if(radio.checked === true){
-          return radio.value
+      for(let label of document.querySelectorAll('form div label')){
+        if(label.children[1].checked === true){
+          return label.children[1].value
         }
       }
     }
