@@ -33,15 +33,21 @@ class BeverageComponent extends Component {
         'Content-type': 'application/json'
       },
       body: JSON.stringify(review)
-    })
+    }).then(() => this.props.history.push('/'))
   }
 
   componentDidMount(){
-    for(let beverage of this.props.beverages){
-      if(beverage.id === this.props.match.params.id){
-        this.setState({beverage})
-      }
-    }
+    // for(let beverageArray of this.props.beverages){
+    //   for(let beverage of beverageArray){
+    //     if(beverage.id === this.props.match.params.id){
+    //       this.setState({beverage})
+    //     }
+    //   }
+    // }
+
+    fetch('http://localhost:3001/beverages/' + this.props.match.params.id)
+      .then(res => res.json())
+      .then(beverage => this.setState({beverage}))
   }
 
   render() {

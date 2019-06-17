@@ -6,6 +6,12 @@ const get = (req, res, next) => {
     .catch(error => next(error));
 }
 
+const getById = (req, res, next) => {
+  Review.findOne({beverageId: req.params.id})
+    .then(review => res.send(review))
+    .catch(error => next(error))
+}
+
 const post = (req, res, next) => {
   Review.create({
     beverageId: req.body.beverageId,
@@ -45,6 +51,7 @@ const deleteReview = (req, res, next) => {
 
 module.exports = {
   get,
+  getById,
   post,
   put,
   deleteReview

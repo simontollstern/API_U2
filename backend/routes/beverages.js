@@ -37,6 +37,13 @@ const get = (req, res, next) => {
     .catch(error => next(error))
 }
 
+const getById = (req, res, next) => {
+  Beverage.findOne({id: req.params.id})
+  .then(beverage => res.send(beverage))
+  .catch(error => next(error))
+}
+
 module.exports = {
-  get
+  get,
+  getById
 }
