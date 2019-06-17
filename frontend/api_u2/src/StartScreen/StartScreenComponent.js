@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import style from './StartScreenComponent.module.css';
+import './StartScreenComponent.module.css';
 import ReviewListComponent from '../ReviewList/ReviewListComponent'
 import BeverageListComponent from '../BeverageList/BeverageListComponent';
 
