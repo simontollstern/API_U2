@@ -49,10 +49,13 @@ class BeverageListComponent extends Component {
         <div className={style.beverages}>
 
           {this.state.activePageArray.map(beverage => {
-            return <div key={beverage.id} className={style.beverageWrapper}>
-              <Link to={"/beverage/" + beverage.id}>{beverage.nameBold}</Link>
-            </div> 
-          })}         
+            return <Link to={"/beverage/" + beverage.id} key={beverage.id}>
+              <div className={style.beverageWrapper}>
+                <h1>{beverage.nameBold}</h1>
+                <h2>{beverage.nameThin}</h2>
+              </div>
+            </Link>
+          })}
 
         <Pagination
           activePage={this.state.activePage}
