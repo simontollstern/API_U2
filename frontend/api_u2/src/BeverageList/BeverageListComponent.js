@@ -50,10 +50,10 @@ class BeverageListComponent extends Component {
 
           {this.state.activePageArray.map(beverage => {
             return <div key={beverage.id} className={style.beverageWrapper}>
-              <p>{beverage.nameBold}</p>
+              <Link to={"/beverage/" + beverage.id}>{beverage.nameBold}</Link>
             </div> 
           })}         
-          
+
         <Pagination
           activePage={this.state.activePage}
           itemsCountPerPage={10}
