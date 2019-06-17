@@ -37,14 +37,11 @@ class BeverageListComponent extends Component {
   }
 
   handlePageChange = (pageNumber) =>      {
-    console.log(`active page is ${pageNumber}`);
     this.setState({activePage: pageNumber});
     this.setState({activePageArray: this.props.beverages[this.state.activePage -1]});
   }
 
   render() {
-
-    console.log(this.state.activePageArray);
 
     return (
         <div className={style.beverages}>
