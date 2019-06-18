@@ -30,7 +30,6 @@ export default class ReviewListComponent extends Component {
   }
 
   render() {
-    console.log(this.state.reviews)
     return (
       <div className={style.reviews}>
           {this.state.reviews.map((review, index) => {
