@@ -70,3 +70,19 @@ Alla recensioner ska visas som ett “flöde” på startsidan, detta för att s
 
 ### Use Cases
 <a href="https://trello.com/b/xO3GzxDI">https://trello.com/b/xO3GzxDI</a>
+
+
+
+---
+
+### Known bugs
+
+```
+Pagination doesnt re-render component as it should.
+```
+
+### Fixes needed 
+
+```
+No navigation menu while editing/adding/viewing beverages.
+```
