@@ -61,12 +61,9 @@ export default class ReviewComponent extends Component {
     .then(review => this.setState({review}))
     .then(() => {
       const labels = document.querySelectorAll('form div label');
-      console.log(this.state.review.rating);
       if(this.state.review.rating){
-        console.log('+1')
         labels[0].children[1].checked = true;
       }else{
-        console.log('-1')
         labels[1].children[1].checked = true;
       }
     })
